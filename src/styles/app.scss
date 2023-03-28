@@ -1,0 +1,74 @@
+@import "./node";
+
+body 
+{
+	min-height: 100%;
+	min-width: 100%;
+	background-color: #282c34;
+
+	margin: 0;
+	
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	&::-webkit-scrollbar 
+	{
+		height: 12px;
+		width: 12px;
+	}
+
+	&::-webkit-scrollbar-track 
+	{
+		background: transparent;
+	}
+	
+	&::-webkit-scrollbar-thumb 
+	{
+		background-color: rgba(100, 100, 100, 0.7);
+		border-color: transparent;
+
+		&:hover
+		{
+			background-color: rgba(170, 170, 170, 0.8);
+		}
+	}
+}
+
+.relative
+{
+	position: relative;
+}
+
+.app
+{
+	margin: 40px;
+	text-align: center;
+	font-family: 'Consolas', Consolas, monospace;
+	
+	.app-link
+	{
+		color: #61dafb;
+	}
+
+	.button-group
+	{
+		align-items: center;
+		justify-content: center;
+		gap: 5px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.button
+	{
+		cursor: pointer;
+		border:none;
+
+		font-family: 'Consolas', Consolas, monospace !important;
+		font-weight: bold;
+		border-radius: 20px;
+		width: 96px;
+		height: 32px;
+	}
+}
+

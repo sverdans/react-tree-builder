@@ -1,0 +1,120 @@
+
+.node-wrapper
+{
+	z-index: 1;
+
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	margin: 0 auto;
+    flex-direction: column;
+	gap: 20px;
+
+	.node-input-group
+	{
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		
+		.node-button
+		{
+			cursor: pointer;
+			font-family: 'Consolas', Consolas, monospace !important;
+
+			width: 18px;
+			height: 18px;
+			border-radius: 50%;
+			visibility: hidden;
+
+			font-size: 12px;
+			font-weight: bold;
+			color: rgb(251,251,251);
+			border: none;
+
+			&.add
+			{
+				background-color: rgb(76,216,104);
+			}
+
+			&.remove
+			{
+				background-color: rgb(255,58,49);
+			}
+		}
+
+		&:hover
+		{
+			.node-button
+			{
+				visibility: initial;
+			}
+		}
+
+		.node
+		{
+			display: flex;
+			width: 32px;
+			height: 32px;
+
+			border-radius: 50%;
+			border-color: #61dafb;
+			border-width: 4px;
+			border-style: solid;
+
+			text-align: center;
+			font-family: 'Consolas', Consolas, monospace !important;
+            z-index: 1;
+
+			&::-webkit-outer-spin-button,
+			&::-webkit-inner-spin-button 
+			{
+				-webkit-appearance: none;
+				margin: 0; 
+			}
+
+			&:focus
+			{
+				outline: none;
+			}
+
+			&.disabled
+			{
+				background-color: #61dafb;
+			}
+		}
+
+	
+		
+	}
+
+	.children-nodes-container
+	{
+		display: flex;
+		align-items: start;
+		justify-content: center;
+		gap: 5px;
+	}
+
+	.player-info
+	{
+		position: absolute;
+		left: 0;
+
+        height: 42px;
+        line-height: 42px;
+
+        color: rgb(251,251,251);
+	}
+
+    .player-info-line
+    {
+		position: absolute;
+		left: 0;
+        height: 42px;
+        border: none;
+        border-top: 2px dashed rgba(251,251,251,0.1);
+        margin: 20.5px 0 0 0;
+        width: 100%;
+    }
+}
+
