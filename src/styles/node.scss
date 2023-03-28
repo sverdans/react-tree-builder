@@ -79,12 +79,11 @@
 
 			&.disabled
 			{
-				background-color: #61dafb;
+                color: white;
+			    border-color: #0789ac;
+				background-color: #0789ac;
 			}
 		}
-
-	
-		
 	}
 
 	.children-nodes-container
@@ -94,27 +93,4 @@
 		justify-content: center;
 		gap: 5px;
 	}
-
-	.player-info
-	{
-		position: absolute;
-		left: 0;
-
-        height: 42px;
-        line-height: 42px;
-
-        color: rgb(251,251,251);
-	}
-
-    .player-info-line
-    {
-		position: absolute;
-		left: 0;
-        height: 42px;
-        border: none;
-        border-top: 2px dashed rgba(251,251,251,0.1);
-        margin: 20.5px 0 0 0;
-        width: 100%;
-    }
 }
-

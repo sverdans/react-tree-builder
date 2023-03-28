@@ -6,17 +6,17 @@ const isDisable = (node) =>
 	return (node?.nodes?.length !== 0 ? true : false)
 }
 
+
 const Node = ({ node, order, reset }) =>
 {
-    const [nodeIn, setNode] = React.useState(node)
+	const [nodeIn, setNode] = React.useState(node)
 
 	const updateValue = (event, node) =>
 	{
 		const newValue = node.value;
 		newValue.weight = event.target.value;
-        setNode({ id: node.id, value: newValue, nodes: node.nodes })
+		setNode({ id: node.id, value: newValue, nodes: node.nodes })
 	}
-
 
 	const onAddButtonClick = (node) =>
 	{
@@ -28,20 +28,20 @@ const Node = ({ node, order, reset }) =>
 			value: { weight: 0 },
 			nodes: []
 		})
-        setNode({ id: node.id, value: node.value, nodes: newNodes })
-        reset();
+		setNode({ id: node.id, value: node.value, nodes: newNodes })
+		reset();
 	}
 	
 	const onDeleteButtonClick = (node) =>
 	{
 		const newNodes = node.nodes
 		newNodes.pop()
-        setNode({ id: node.id, value: node.value, nodes: newNodes, })
-        reset();
+		setNode({ id: node.id, value: node.value, nodes: newNodes, })
+		reset();
 	}
 
 	return (
-		<div className={"node-wrapper" + (node.id == "0" ? " relative" : "")}>
+		<div className="node-wrapper">
 
 			<div className="node-input-group">
 				<button className="node-button remove" onClick={() => { onDeleteButtonClick(nodeIn) }}>-</button>
@@ -57,7 +57,7 @@ const Node = ({ node, order, reset }) =>
 			<div className="children-nodes-container">
 				{
 					nodeIn?.nodes?.map((value) =>
-                        (<Node node={value} key={value.id} order={(order == 'min' ? 'max' : 'min')} reset={reset} />))
+						(<Node node={value} key={value.id} order={(order == 'min' ? 'max' : 'min')} reset={reset} />))
 				}
 			</div>
 
@@ -71,10 +71,7 @@ const Node = ({ node, order, reset }) =>
 				}
 			</>
 
-            <div className="player-info" id={'player-info' + nodeIn.id.split('.').length}>
-                {order}
-            </div>
-            <hr className="player-info-line"></hr>
+		
 
 		</div>
 	);

@@ -45,6 +45,41 @@ body
 	text-align: center;
 	font-family: 'Consolas', Consolas, monospace;
 	
+    .tree-container
+    {
+        display: grid;
+        grid-template-columns: 40px auto;
+        position: relative;
+
+        .player-info
+        {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+    
+            color: rgb(251,251,251);
+
+            .player-info-text
+            {
+                height: 42px;
+                line-height: 42px;
+            }
+
+            .player-info-line
+            {
+                z-index: -1;
+                position: absolute;
+                left: 0;
+                height: 42px;
+                border: none;
+                border-top: 2px dashed rgb(81,84,90);
+                margin: 20.5px 0 0 0;
+                width: 100%;
+            }
+        }
+    }
+
 	.app-link
 	{
 		color: #61dafb;
@@ -52,11 +87,20 @@ body
 
 	.button-group
 	{
+        margin-left: 40px;
+        display: flex;
+		flex-direction: column;
+
 		align-items: center;
 		justify-content: center;
 		gap: 5px;
-		display: flex;
-		flex-direction: column;
+	
+
+        .button-pair
+        {
+            display: flex;
+            gap: 5px;
+        }
 	}
 
 	.button
@@ -67,8 +111,9 @@ body
 		font-family: 'Consolas', Consolas, monospace !important;
 		font-weight: bold;
 		border-radius: 20px;
-		width: 96px;
+		width: 128px;
 		height: 32px;
+
 	}
 }
 
