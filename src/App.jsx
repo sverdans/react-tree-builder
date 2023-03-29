@@ -16,10 +16,7 @@ const checkNode = (node, order) =>
 	if (node.nodes.length == 0)
 		return;
 	
-	node.nodes.forEach(n => {
-		if (n.nodes.length != 0)
-			checkNode(n, (order == 'max' ? 'min' : 'max'))	
-	});
+	node.nodes.forEach(n => { checkNode(n, (order === 'max' ? 'min' : 'max')) })
 	
 	let item;
 
@@ -30,8 +27,43 @@ const checkNode = (node, order) =>
 		item = node.nodes.reduce((prev, current) =>
 			(+prev.value.weight < +current.value.weight) ? prev : current) // min
 
-	console.log(item.value);
 	node.value = item.value;
+}
+
+const checkNodeAlphaBeta = (node, order, ab) => 
+{
+	if (node.nodes.length == 0)
+		return node.value.weight;
+	
+
+	node.nodes.forEach((n, index, arr) => {
+		if (ab.a >= ab.b)
+			arr.splice(index, 1)
+
+		const tempAB = { a: ab.a, b: ab.b }
+		
+		if (order === 'max')
+		{
+			ab.a = Math.max(ab.a, checkNodeAlphaBeta(n, 'min', tempAB))
+		}
+		else
+		{
+			ab.b = Math.min(ab.b, checkNodeAlphaBeta(n, 'max', tempAB))
+		}
+	});
+	
+	console.log('alpha/beta:', ab, 'for node:', node)
+
+	if (order === 'max')
+	{
+		node.value.weight = ab.a
+		return ab.a
+	}
+	else
+	{
+		node.value.weight = ab.b
+		return ab.b
+	}
 }
 
 function App()
@@ -62,7 +94,14 @@ function App()
 	const findSolution = (node, order) =>
 	{
 		checkNode(node, order)
-		reset();
+		reset()
+	}
+	
+	const findSolutionAlphaBeta = (node, order) => 
+	{
+		const ab = { a: Number.MIN_SAFE_INTEGER, b: Number.MAX_SAFE_INTEGER }
+		checkNodeAlphaBeta(node, order, ab); 
+		reset()
 	}
 
 	return (
@@ -94,7 +133,7 @@ function App()
 						minmax
 					</button>
 					
-					<button className="button">
+					<button className="button" onClick={() => { findSolutionAlphaBeta(rootNode, order) }}>
 						alpha-beta
 					</button>
 				</div>
