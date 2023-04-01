@@ -19,7 +19,6 @@
 		.node-button
 		{
 			cursor: pointer;
-			font-family: 'Consolas', Consolas, monospace !important;
 
 			width: 18px;
 			height: 18px;
@@ -56,13 +55,17 @@
 			width: 32px;
 			height: 32px;
 
+            color: rgb(50,230,226);
+            background-color: rgb(6,11,16);
 			border-radius: 50%;
-			border-color: #61dafb;
+			border-color: rgb(50,230,226);
 			border-width: 4px;
 			border-style: solid;
 
 			text-align: center;
 			font-family: 'Consolas', Consolas, monospace !important;
+            font-weight: 600;
+            
             z-index: 1;
 
 			&::-webkit-outer-spin-button,
@@ -79,9 +82,9 @@
 
 			&.disabled
 			{
-                color: white;
-			    border-color: #0789ac;
-				background-color: #0789ac;
+                color: rgb(6,11,16);
+			    border-color: rgb(50,230,226);
+				background-color: rgb(50,230,226);
 			}
 		}
 	}

@@ -64,7 +64,7 @@ const Node = ({ node, order, reset }) =>
 			<>
 				{
 					nodeIn?.nodes?.map((value, index) => {
-						return (<Xarrow start={nodeIn.id} end={value.id}
+						return (<Xarrow color="rgb(37, 159, 145)" start={nodeIn.id} end={value.id}
 							startAnchor={'bottom'} endAnchor={'top'}
 							showHead={false} path={'grid'} key={index}/>)
 					})

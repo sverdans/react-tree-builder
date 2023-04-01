@@ -1,7 +1,7 @@
 import React from "react";
 import Node from "./components/Node";
 
-let depth = 0;
+let depth = 1;
 
 const calculateDepth = (node, result) =>
 {
@@ -77,7 +77,7 @@ function App()
 		nodes: [],
 	});
 
-	const [depthDivs, setDepthDivs] = React.useState([]);
+	const [depthDivs, setDepthDivs] = React.useState([0]);
 
 	const reset = () => {
 		depth = 0;
@@ -126,30 +126,31 @@ function App()
 				<Node node={rootNode} order={order} reset={reset} /> 
 			</div>
 			
-			<div className="button-group">
+            <div className="card-container">
+				<div className="card">
+					<div className="card-title">Algorithms</div>
 
-				<div className="button-pair">
 					<button className="button" onClick={() => { findSolution(rootNode, order) }}>
-						minmax
+							minmax
 					</button>
-					
+						
 					<button className="button" onClick={() => { findSolutionAlphaBeta(rootNode, order) }}>
 						alpha-beta
 					</button>
 				</div>
 
-				<div className="button-pair">
+				<div className="card">
+					<div className="card-title">Settings</div>
 					{
 						order == 'min'
 						? <button className="button" onClick={() => {setOrder('max')}}>min-{">"}max</button>
 						: <button className="button" onClick={() => {setOrder('min')}}>max-{">"}min</button>
 					}
 
-					<button className="button" onClick={() => { window.location.reload() }}>
+					<button className="button clear" onClick={() => { window.location.reload() }}>
 						clear
 					</button>
 				</div>
-
 			</div>
 		</div>
 	);
