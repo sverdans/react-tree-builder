@@ -1,11 +1,5 @@
 @import "./node";
 
-html
-{
-    display: flex;
-    width:100%;
-}
-
 body 
 {
 	min-height: 100%;
@@ -78,6 +72,7 @@ body
                 z-index: -1;
                 position: absolute;
                 left: 0;
+                margin: 0;
                 height: 42px;
                 border: none;
                 border-top: 2px dashed rgb(81,84,90);

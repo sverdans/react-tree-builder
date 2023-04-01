@@ -112,7 +112,7 @@ function App()
 					{
 						depthDivs.map((value, index) => (
 							<>
-								<hr className="player-info-line" style={{ top: index * 62 }}></hr>
+								<hr className="player-info-line" style={{ top: 40 + index * 62 }}></hr>
 								<div className="player-info-text">
 									{(value
 									? (order == "max" ? "max" : "min")
