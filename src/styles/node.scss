@@ -67,7 +67,8 @@
             font-weight: 600;
             
             z-index: 1;
-
+			-moz-appearance: textfield;
+			
 			&::-webkit-outer-spin-button,
 			&::-webkit-inner-spin-button 
 			{
